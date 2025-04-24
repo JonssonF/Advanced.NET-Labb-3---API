@@ -16,6 +16,9 @@ namespace Labb3_API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PersonInterest>()
+                .HasKey(pi => new { pi.PersonId, pi.InterestId }); // composite key
+
+            modelBuilder.Entity<PersonInterest>()
                 .HasOne(pi => pi.Person)
                 .WithMany(p => p.PersonInterests)
                 .HasForeignKey(pi => pi.PersonId);
@@ -25,10 +28,11 @@ namespace Labb3_API.Data
                 .WithMany(i => i.PersonInterests)
                 .HasForeignKey(pi => pi.InterestId);
 
+            // Koppling mellan Link och PersonInterest
             modelBuilder.Entity<Link>()
                 .HasOne(l => l.PersonInterest)
                 .WithMany(pi => pi.Links)
-                .HasForeignKey(l => l.PersonInterestId);
+                .HasForeignKey(l => new { l.PersonId, l.InterestId });
         }
 
     }

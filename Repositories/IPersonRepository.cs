@@ -1,0 +1,13 @@
+﻿using Labb3_API.Models;
+
+namespace Labb3_API.Repositories
+{
+    public interface IPersonRepository : IGenericRepository<Person>
+    {
+        Task<IEnumerable<Interest>> GetPersonInterestsAsync(int personId);
+        Task<IEnumerable<Link>> GetPersonLinksAsync(int personId);
+        Task AddInterestToPersonAsync(int personId, int interestId);
+
+    }
+}
+
