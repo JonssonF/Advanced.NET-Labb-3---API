@@ -1,4 +1,6 @@
-﻿namespace Labb3_API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Labb3_API.Models
 {
     public class Link
     {
@@ -7,7 +9,7 @@
         
         public int PersonId { get; set; }
         public int InterestId { get; set; }
-
+        [JsonIgnore]
         public PersonInterest ? PersonInterest { get; set; }
 
     }

@@ -12,17 +12,40 @@ namespace Labb3_API.Repositories
         {
             _context = context;
         }
-        public async Task<IEnumerable<Link>> GetLinksByInterestIdAsync(int interestId)
+        
+        //public async Task<IEnumerable<Link>> GetLinksByInterestIdAsync(int interestId)
+        //{
+        //    return await _context.Links
+        //        .Where(l => l.InterestId == interestId)
+        //        .ToListAsync();
+        //}
+        //public async Task AddLinkToInterestAsync(int interestId, Link link)
+        //{
+        //    link.InterestId = interestId;
+        //    await AddAsync(link);
+        //    await SaveAsync();
+        //}
+
+        public async Task AddLinkAsync(int personId, int interestId, string url)
         {
-            return await _context.Links
-                .Where(l => l.InterestId == interestId)
-                .ToListAsync();
-        }
-        public async Task AddLinkToInterestAsync(int interestId, Link link)
-        {
-            link.InterestId = interestId;
-            await AddAsync(link);
-            await SaveAsync();
+            var personInterest = await _context.PersonInterests
+                .FirstOrDefaultAsync(pi => pi.PersonId == personId && pi.InterestId == interestId);
+
+            if (personInterest == null) 
+            {
+                throw new Exception("The person is not connected to the interest.");
+            }
+
+            var link = new Link
+            {
+                Url = url,
+                PersonId = personId,
+                InterestId = interestId,
+                PersonInterest = personInterest
+            };
+
+            await _context.Links.AddAsync(link);
+            await _context.SaveChangesAsync();
         }
     }
 }

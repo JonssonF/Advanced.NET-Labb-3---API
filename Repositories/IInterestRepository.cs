@@ -4,7 +4,7 @@ namespace Labb3_API.Repositories
 {
     public interface IInterestRepository : IGenericRepository<Interest>
     {
-        
-        
+        Task<IEnumerable<Interest>> GetAllInterestsAsync();
+
     }
 }
