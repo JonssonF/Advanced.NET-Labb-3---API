@@ -1,4 +1,5 @@
 ﻿using Labb3_API.Models;
+using Labb3_API.Models.DTOs;
 using Labb3_API.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -13,18 +13,18 @@ namespace Labb3_API.Repositories
             _context = context;
         }
         
-        public async Task<IEnumerable<Link>> GetLinksByInterestIdAsync(int interestId)
-        {
-            return await _context.Links
-                .Where(l => l.InterestId == interestId)
-                .ToListAsync();
-        }
-        public async Task AddLinkToInterestAsync(int interestId, Link link)
-        {
-            link.InterestId = interestId;
-            await AddAsync(link);
-            await SaveAsync();
-        }
+        //public async Task<IEnumerable<Link>> GetLinksByInterestIdAsync(int interestId)
+        //{
+        //    return await _context.Links
+        //        .Where(l => l.InterestId == interestId)
+        //        .ToListAsync();
+        //}
+        //public async Task AddLinkToInterestAsync(int interestId, Link link)
+        //{
+        //    link.InterestId = interestId;
+        //    await AddAsync(link);
+        //    await SaveAsync();
+        //}
 
         public async Task AddLinkAsync(int personId, int interestId, string url)
         {

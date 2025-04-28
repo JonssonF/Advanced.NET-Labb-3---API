@@ -24,7 +24,6 @@ namespace Labb3_API.Controllers
         public async Task<ActionResult<IEnumerable<PersonDetailsDTO>>> GetAll()
         {
             var persons = await _personRepository.GetAllAsync();
-
             
             return Ok(persons);
         }
@@ -75,7 +74,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpPost("{id}/interest/{interestId}", Name = "Add Link to Person")]
+        [HttpPost("{id}/interest/{interestId}", Name = "Add Link to Person & interest")]
         public async Task<IActionResult> AddLinkToPersonInterest(int id, int interestId, [FromBody] CreateLinkDTO dto)
         {
             try
