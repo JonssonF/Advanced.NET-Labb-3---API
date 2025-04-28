@@ -89,5 +89,22 @@ namespace Labb3_API.Repositories
             };
             return personDto;
         }
+        /*---------------------------------------------------------------------------*/
+
+        public async Task UpdatePersonNameAsync(int personId, string newName)
+        {
+            var person = await _context.Persons.FindAsync(personId);
+
+            if (person == null) 
+            {
+                throw new Exception("Could not find a person with matching ID, try again");
+            }
+
+            person.Name =newName;
+
+            _context.Persons.Update(person);
+            await _context.SaveChangesAsync();
+        }
+        /*---------------------------------------------------------------------------*/
     }
 }

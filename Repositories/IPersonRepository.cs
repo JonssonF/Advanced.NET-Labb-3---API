@@ -9,6 +9,7 @@ namespace Labb3_API.Repositories
         Task<IEnumerable<Link>> GetPersonLinksAsync(int personId);
         Task AddInterestToPersonAsync(int personId, int interestId);
         Task<PersonDetailsDTO> GetDetailedPersonByIdAsync(int id);
+        Task UpdatePersonNameAsync(int personId, string name);
 
     }
 }

@@ -74,7 +74,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpPost("{id}/interest/{interestId}", Name = "Add Link to Person & interest")]
+        [HttpPost("{id}/interest url/{interestId}", Name = "Add Link to Person & interest")]
         public async Task<IActionResult> AddLinkToPersonInterest(int id, int interestId, [FromBody] CreateLinkDTO dto)
         {
             try
@@ -85,6 +85,20 @@ namespace Labb3_API.Controllers
             catch (InvalidOperationException ex)
             {
                 return NotFound(ex.Message);
+            }
+        }
+        /*---------------------------------------------------------------------------*/
+        [HttpPut("{id}/update-name")]
+        public async Task<IActionResult> UpdatePersonName(int id, [FromQuery] UpdateNameDTO dto)
+        {
+            try
+            {
+                await _personRepository.UpdatePersonNameAsync(id, dto.Name);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return NotFound($"{ex.Message}");
             }
         }
     }
