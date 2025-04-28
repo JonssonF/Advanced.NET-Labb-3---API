@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Labb3_API.Repositories;
 
-
 namespace Labb3_API
 {
     public class Program

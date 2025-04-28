@@ -1,5 +1,6 @@
 ﻿using Labb3_API.Data;
 using Labb3_API.Models;
+using Labb3_API.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Labb3_API.Repositories
@@ -48,6 +49,34 @@ namespace Labb3_API.Repositories
 
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<PersonDetailsDTO> GetDetailedPersonByIdAsync(int id)
+        {
+            var person = await _context.Persons
+                .Include(p => p.PersonInterests)
+                    .ThenInclude(pi => pi.Interest)
+                .Include(p => p.PersonInterests)
+                    .ThenInclude(pi => pi.Links)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (person == null)
+            {
+                return null;
+            }
+            var personDto = new PersonDetailsDTO
+            {
+                Name = person.Name,
+                PhoneNumber = person.PhoneNumber,
+                PersonInterests = person.PersonInterests.Select(pi => new PersonInterestDTO
+                {
+                    Title = pi.Interest.Title,
+                    Description = pi.Interest.Description,
+                    Links = pi.Links.Select(link => link.Url).ToList()
+                }).ToList()
+            };
+
+            return personDto;
         }
     }
 }
