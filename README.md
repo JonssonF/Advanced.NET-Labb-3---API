@@ -50,4 +50,57 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 
 Swagger responses.
 
+-Get detailed information about a persons interests & links by id.
+
+{
+  "name": "Petter",
+  "phoneNumber": "070-12002-0022",
+  "interests": [
+    {
+      "title": "Hiking",
+      "description": "Exploring mountains and nature",
+      "links": [
+        "https://medium.com",
+        "https://trails.com"
+      ]
+    },
+    {
+      "title": "Cooking",
+      "description": "Making and eating good food",
+      "links": [
+        "https://medium.com"
+      ]
+    },
+    {
+      "title": "Gaming",
+      "description": "Playing games of all kinds",
+      "links": [
+        "https://trails.com",
+        "https://unity.com"
+      ]
+    }
+  ]
+}
+
+-Get All persons, using PersonDetailsDTO
+
+[
+  {
+    "id": 1,
+    "name": "Fredrik",
+    "phoneNumber": "070-12001-0011"
+  },
+  {
+    "id": 2,
+    "name": "Petter",
+    "phoneNumber": "070-12002-0022"
+  },
+  {
+    "id": 3,
+    "name": "Person 3",
+    "phoneNumber": "070-12003-0033"
+  }
+
+
+
 
