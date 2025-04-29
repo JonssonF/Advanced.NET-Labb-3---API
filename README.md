@@ -102,6 +102,13 @@ Swagger responses.
     "phoneNumber": "070-12003-0033"
   }
 ```
-
+-Add new interest.
+```json
+{
+  "id": 6,
+  "title": "Chilling",
+  "description": "Pick some belly button lint and watch Netflix."
+}
+```
 
 
