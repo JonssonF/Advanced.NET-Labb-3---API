@@ -88,7 +88,7 @@ namespace Labb3_API.Controllers
             }
         }
         /*---------------------------------------------------------------------------*/
-        [HttpPut("{id}/update-name")]
+        [HttpPut("{id}/update-name", Name = "Update name of Person")]
         public async Task<IActionResult> UpdatePersonName(int id, [FromQuery] UpdateNameDTO dto)
         {
             try
@@ -101,5 +101,14 @@ namespace Labb3_API.Controllers
                 return NotFound($"{ex.Message}");
             }
         }
+        /*---------------------------------------------------------------------------*/
+        [HttpPost(Name = "Add Person")]
+        public async Task<IActionResult> AddPerson([FromBody]Person person)
+        {
+            await _personRepository.AddAsync(person);
+            await _personRepository.SaveAsync();
+            return CreatedAtAction(nameof(GetById), new { id = person.Id }, person);
+        }
+        /*---------------------------------------------------------------------------*/
     }
 }
