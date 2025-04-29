@@ -37,6 +37,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 
 | HTTP Method | URL | Description |
 |-------------|-----|-------------|
+| POST | `/api/interest` | Create a new interest (Title + Description) |
 | GET | `/api/interest` | Retrieve all interests (Title + Description) |
 
 ---
