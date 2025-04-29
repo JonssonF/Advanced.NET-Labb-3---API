@@ -50,7 +50,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 
 ---
 
-Swagger responses.
+## Response Bodies.
 
 -Get detailed information about a persons interests & links by id.
 ```json
