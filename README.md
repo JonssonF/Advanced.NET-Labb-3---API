@@ -62,7 +62,6 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
       "title": "Hiking",
       "description": "Exploring mountains and nature",
       "links": [
-        "https://medium.com",
         "https://trails.com"
       ]
     },
@@ -70,14 +69,13 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
       "title": "Cooking",
       "description": "Making and eating good food",
       "links": [
-        "https://medium.com"
+        "https://vadfanskajaglagatillmiddag.nu"
       ]
     },
     {
       "title": "Gaming",
       "description": "Playing games of all kinds",
       "links": [
-        "https://trails.com",
         "https://unity.com"
       ]
     }
