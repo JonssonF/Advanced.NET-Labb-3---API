@@ -51,7 +51,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 Swagger responses.
 
 -Get detailed information about a persons interests & links by id.
-
+```json
 {
   "name": "Petter",
   "phoneNumber": "070-12002-0022",
@@ -81,9 +81,10 @@ Swagger responses.
     }
   ]
 }
+```
 
 -Get All persons, using PersonDetailsDTO
-
+```json
 [
   {
     "id": 1,
@@ -100,7 +101,7 @@ Swagger responses.
     "name": "Person 3",
     "phoneNumber": "070-12003-0033"
   }
-
+```
 
 
 
