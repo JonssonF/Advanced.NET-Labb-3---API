@@ -13,6 +13,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 - Add new links for a specific person and interest
 - Create new persons
 - Update name of person
+- Add new interests
 
 ---
 
