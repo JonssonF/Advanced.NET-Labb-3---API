@@ -18,7 +18,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpGet(Name = "Get All Links")]
+        [HttpGet("/Retrieve all Links in the DataBase", Name = "Get All Links")]
         public async Task<ActionResult<IEnumerable<Link>>> GetAll()
         {
             var links = await _linkRepository.GetAllAsync();

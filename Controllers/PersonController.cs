@@ -20,7 +20,7 @@ namespace Labb3_API.Controllers
 
         }
         /*---------------------------------------------------------------------------*/
-        [HttpGet(Name = "Get All Info From Persons")]
+        [HttpGet("/Retrieve all Persons from database", Name = "Get All Persons")]
         public async Task<ActionResult<IEnumerable<PersonDetailsDTO>>> GetAll()
         {
             var persons = await _personRepository.GetAllAsync();
@@ -29,7 +29,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpGet("{id}", Name = "Get details by ID")]
+        [HttpGet("{id}/ Retrieve all information about a Person by ID", Name = "Get details by ID")]
         public async Task<ActionResult<PersonDetailsDTO>> GetById(int id)
         {
             var personDto = await _personRepository.GetDetailedPersonByIdAsync(id);
@@ -42,7 +42,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpGet("{id}/interests", Name = "Get Interest by person ID")]
+        [HttpGet("{id}/Retrieve all Interests for a person by ID", Name = "Get Interest by person ID")]
         public async Task<ActionResult<IEnumerable<Interest>>> GetPersonInterests(int id)
         {
             var interests = await _personRepository.GetPersonInterestsAsync(id);
@@ -54,7 +54,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpGet("{id}/links", Name = "Get Links by person ID")]
+        [HttpGet("{id}/Retrieves all links for a person by ID", Name = "Get Links by person ID")]
         public async Task<ActionResult<IEnumerable<Link>>> GetPersonLinks(int id)
         {
             var links = await _personRepository.GetPersonLinksAsync(id);
@@ -66,7 +66,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpPost("{personId}/interests/{interestId}", Name = "Add Interest to Person")]
+        [HttpPost("{personId}/{interestId}/ Add interests", Name = "Add Interest to Person")]
         public async Task<IActionResult> AddInterestToPerson(int personId, int interestId)
         {
             await _personRepository.AddInterestToPersonAsync(personId, interestId);
@@ -74,7 +74,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpPost("{id}/interest url/{interestId}", Name = "Add Link to Person & interest")]
+        [HttpPost("{id}/{interestId}/Add Interest URL to Person", Name = "Add Link to Person & interest")]
         public async Task<IActionResult> AddLinkToPersonInterest(int id, int interestId, [FromBody] CreateLinkDTO dto)
         {
             try
@@ -88,7 +88,7 @@ namespace Labb3_API.Controllers
             }
         }
         /*---------------------------------------------------------------------------*/
-        [HttpPut("{id}/update-name", Name = "Update name of Person")]
+        [HttpPut("{id}/ Update name by ID", Name = "Update name of Person")]
         public async Task<IActionResult> UpdatePersonName(int id, [FromQuery] UpdateNameDTO dto)
         {
             try
@@ -102,7 +102,7 @@ namespace Labb3_API.Controllers
             }
         }
         /*---------------------------------------------------------------------------*/
-        [HttpPost(Name = "Add Person")]
+        [HttpPost("Add a new Person", Name = "Add Person")]
         public async Task<IActionResult> AddPerson([FromBody]Person person)
         {
             await _personRepository.AddAsync(person);

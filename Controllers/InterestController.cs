@@ -18,7 +18,7 @@ namespace Labb3_API.Controllers
         }
 
         /*---------------------------------------------------------------------------*/
-        [HttpGet(Name = "Get All Interests")]
+        [HttpGet("/Retrieve all Interests in the DataBase", Name = "Get All Interests")]
         public async Task<ActionResult<IEnumerable<Interest>>> GetAllInterests()
         {
             var interests = await _interestRepository.GetAllInterestsAsync();
@@ -26,7 +26,7 @@ namespace Labb3_API.Controllers
             return Ok(interests);
         }
         /*---------------------------------------------------------------------------*/
-        [HttpPost(Name = "Add a new Interest")]
+        [HttpPost("Add a new Interest to the DataBase", Name = "Add a new Interest")]
         public async Task<ActionResult<Interest>> CreateInterest([FromQuery]Interest interest)
         {
             await _interestRepository.AddAsync(interest);
