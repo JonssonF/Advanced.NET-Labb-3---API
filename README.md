@@ -10,10 +10,10 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 - Retrieve interests linked to a specific person
 - Retrieve links linked to a specific person
 - Associate a person with a new interest
-- Add new links for a specific person and interest
+- Create new links for a specific person and interest
 - Create new persons
 - Update name of person
-- Add new interests
+- Create new interests
 
 ---
 
