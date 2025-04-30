@@ -13,6 +13,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 - Add new links for a specific person and interest
 - Create new persons
 - Update name of person
+- Add new interests
 
 ---
 
@@ -36,6 +37,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 
 | HTTP Method | URL | Description |
 |-------------|-----|-------------|
+| POST | `/api/interest` | Create a new interest (Title + Description) |
 | GET | `/api/interest` | Retrieve all interests (Title + Description) |
 
 ---
@@ -48,7 +50,7 @@ The API manages **Persons**, **Interests**, and **Links** associated with a pers
 
 ---
 
-Swagger responses.
+## Response Bodies.
 
 -Get detailed information about a persons interests & links by id.
 ```json
@@ -60,7 +62,6 @@ Swagger responses.
       "title": "Hiking",
       "description": "Exploring mountains and nature",
       "links": [
-        "https://medium.com",
         "https://trails.com"
       ]
     },
@@ -68,14 +69,13 @@ Swagger responses.
       "title": "Cooking",
       "description": "Making and eating good food",
       "links": [
-        "https://medium.com"
+        "https://vadfanskajaglagatillmiddag.nu"
       ]
     },
     {
       "title": "Gaming",
       "description": "Playing games of all kinds",
       "links": [
-        "https://trails.com",
         "https://unity.com"
       ]
     }
